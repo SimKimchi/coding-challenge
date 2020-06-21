@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NinjAPI.DAL;
 using NinjAPI.Models;
+using NinjAPI.Utility;
 
 namespace NinjAPI.Services
 {
@@ -30,7 +31,7 @@ namespace NinjAPI.Services
 		private string GenerateNinjaName(string buzzwords)
 		{
 			var ninjaName = "";
-			var wordList = buzzwords.Split(',').ToList();
+			var wordList = ToolBox.CreateWordList(buzzwords);
 			var lastBuzzword = wordList.Last();
 
 			wordList.Remove(lastBuzzword);
@@ -60,7 +61,7 @@ namespace NinjAPI.Services
 				numValOfWord += c;
 			}
 
-			int ninjaWordIndex = numValOfWord % (ninjaWords.Count - 1);
+			int ninjaWordIndex = numValOfWord % ninjaWords.Count;
 
 			ninjaWord = ninjaWords[ninjaWordIndex];
 

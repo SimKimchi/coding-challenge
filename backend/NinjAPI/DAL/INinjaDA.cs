@@ -6,5 +6,6 @@ namespace NinjAPI.DAL
     {
         List<string> GetNinjaAdjectives();
         List<string> GetNinjaNames();
+        List<string> GetAwesomeList();
     }
 }

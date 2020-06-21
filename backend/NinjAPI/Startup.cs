@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NinjAPI.DAL;
 using NinjAPI.Services;
+using NinjAPI.Validators;
 
 namespace NinjAPI
 {
@@ -24,6 +25,7 @@ namespace NinjAPI
 		{
 			services.AddSingleton<INinjaService, NinjaService>();
 			services.AddSingleton<INinjaDA, NinjaDA>();
+			services.AddSingleton<IBuzzwordValidator, BuzzwordValidator>();
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 		}

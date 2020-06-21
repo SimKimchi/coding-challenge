@@ -20,12 +20,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
     <None Include=".vscode\launch.json" />
     <None Include=".vscode\tasks.json" />
     <None Include="appsettings.Development.json" />
     <None Include="appsettings.json" />
-    <None Include="Database\NinjaDB.json" />
+    <None Include="Database\NinjaAdjectivesDB.json" />
     <None Include="Properties\launchSettings.json" />
   </ItemGroup>
 </Project>

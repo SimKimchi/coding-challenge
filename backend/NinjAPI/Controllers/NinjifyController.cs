@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NinjAPI.Models;
 using NinjAPI.Services;
+using NinjAPI.Validators;
 
 namespace NinjAPI.Controllers
 {
@@ -9,18 +10,22 @@ namespace NinjAPI.Controllers
 	public class NinjifyController : ControllerBase
 	{
 		private readonly INinjaService _ninjaService;
+		private readonly IBuzzwordValidator _buzzwordValidator;
 
-		public NinjifyController(INinjaService ninjaService)
+		public NinjifyController(INinjaService ninjaService, IBuzzwordValidator buzzwordValidator)
 		{
 			_ninjaService = ninjaService;
+			_buzzwordValidator = buzzwordValidator;
 		}
 
 		// GET ninjify?x=buzz,words
 		public ActionResult<string> GetNinjaName(string x)
 		{
-			if (string.IsNullOrEmpty(x))
+			var validationResult = _buzzwordValidator.Validate(x);
+
+			if (!validationResult.isValid)
 			{
-				return null;
+				return BadRequest(validationResult);
 			}
 
 			NinjaModel ninja = _ninjaService.CreateNinja(x);

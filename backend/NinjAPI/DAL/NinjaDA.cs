@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using NinjAPI.Constants;
-using NinjAPI.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,24 +8,37 @@ namespace NinjAPI.DAL
 {
     public class NinjaDA : INinjaDA
     {
-        public List<string> GetNinjaAdjectives() => GetNinjaDTO().NinjaAdjectives;
-
-        public List<string> GetNinjaNames() => GetNinjaDTO().NinjaNames;
-
-        /// <summary>
-		/// Accesses the database (JSON file) and returns a list of ninja names and adjectives.
-		/// </summary>
-		private NinjaDTO GetNinjaDTO()
+        public List<string> GetNinjaAdjectives()
         {
-            NinjaDTO ninjaDTO;
+            string ninjaAdjectivesJSON = ReadJSONFile(Path.Combine(Environment.CurrentDirectory, FilePaths.NinjaAdjectivesDB));
 
-            using (StreamReader sr = new StreamReader(Path.Combine(Environment.CurrentDirectory, FilePaths.NinjaDB)))
+            return JsonConvert.DeserializeObject<List<string>>(ninjaAdjectivesJSON);
+        }
+
+        public List<string> GetNinjaNames()
+        {
+            string ninjaNamesJSON = ReadJSONFile(Path.Combine(Environment.CurrentDirectory, FilePaths.NinjaNamesDB));
+
+            return JsonConvert.DeserializeObject<List<string>>(ninjaNamesJSON);
+        }
+
+        public List<string> GetAwesomeList()
+        {
+            string awesomeList = ReadJSONFile(Path.Combine(Environment.CurrentDirectory, FilePaths.AwesomeListDB));
+
+            return JsonConvert.DeserializeObject<List<string>>(awesomeList);
+        }
+
+        private string ReadJSONFile(string path)
+        {
+            string jsonResult;
+
+            using (StreamReader sr = new StreamReader(Path.Combine(path)))
             {
-                string json = sr.ReadToEnd();
-                ninjaDTO = JsonConvert.DeserializeObject<NinjaDTO>(json);
+                jsonResult = sr.ReadToEnd();
             }
 
-            return ninjaDTO;
+            return jsonResult;
         }
     }
 }
