@@ -23,7 +23,7 @@ namespace NinjAPI.Controllers
 				return null;
 			}
 
-			NinjaModel ninja = _ninjaService.createNinja(x);
+			NinjaModel ninja = _ninjaService.CreateNinja(x);
 
 			return Ok(ninja);
 		}

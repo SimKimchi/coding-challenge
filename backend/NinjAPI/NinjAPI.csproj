@@ -25,7 +25,7 @@
     <None Include=".vscode\tasks.json" />
     <None Include="appsettings.Development.json" />
     <None Include="appsettings.json" />
-    <None Include="Data\NinjaDB.json" />
+    <None Include="Database\NinjaDB.json" />
     <None Include="Properties\launchSettings.json" />
   </ItemGroup>
 </Project>

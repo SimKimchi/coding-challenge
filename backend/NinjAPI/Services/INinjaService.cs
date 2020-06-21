@@ -4,6 +4,6 @@ namespace NinjAPI.Services
 {
 	public interface INinjaService
 	{
-		NinjaModel createNinja(string buzzwords);
+		NinjaModel CreateNinja(string buzzwords);
 	}
 }

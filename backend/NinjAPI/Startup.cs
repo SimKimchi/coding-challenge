@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NinjAPI.DAL;
 using NinjAPI.Services;
 
 namespace NinjAPI
@@ -16,9 +17,13 @@ namespace NinjAPI
 
 		public IConfiguration Configuration { get; }
 
+		/// <summary>
+		/// Configures dependency injection.
+		/// </summary>
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddSingleton<INinjaService, NinjaService>();
+			services.AddSingleton<INinjaDA, NinjaDA>();
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 		}
