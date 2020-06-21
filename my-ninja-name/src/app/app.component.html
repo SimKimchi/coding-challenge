@@ -6,14 +6,14 @@
     <mat-label>Enter a buzzword!</mat-label>
     <input
       matInput
-      #buzzwordInput
       placeholder="Ex. TypeScript"
-      [(value)]="newBuzzword"
-      (keyup.enter)="addBuzzword(buzzwordInput.value)"
+      type="text"
+      [formControl]="buzzwordInput"
+      (keyup.enter)="addBuzzword()"
     />
   </mat-form-field>
 
-  <button mat-stroked-button (click)="addBuzzword(buzzwordInput.value)">
+  <button mat-stroked-button (click)="addBuzzword()">
     Add buzzword
   </button>
 

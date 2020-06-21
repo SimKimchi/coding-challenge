@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +8,22 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
-  @Input()
-  public newBuzzword = 'allo';
-  @Output()
-  public newBuzzwordChange = new EventEmitter<string>();
+  public buzzwordInput = new FormControl();
   public buzzwords: string[] = [];
   public ninjaName: string;
 
   constructor(private http: HttpClient) {}
 
-  public addBuzzword(buzzword: string): void {
+  public addBuzzword(): void {
+    const buzzword: string = this.buzzwordInput.value;
+
     if (!buzzword || this.buzzwords.find((x) => x === buzzword)) {
       return;
     }
     // TODO: Verify that the word is a buzzword.
     this.buzzwords.push(buzzword);
 
-    this.newBuzzword = '';
-    this.newBuzzwordChange.emit(this.newBuzzword);
+    this.buzzwordInput.setValue('');
   }
 
   public removeBuzzword(buzzword: string): void {
@@ -33,9 +32,8 @@ export class AppComponent {
 
   public getNinjaName(): void {
     const flatBuzzwordList = this.buzzwords.join(',').toLowerCase();
-    console.log(flatBuzzwordList);
 
     // this.http.get(this.ninjaNameUrl);
-    this.ninjaName = 'Sekiro';
+    this.ninjaName = flatBuzzwordList;
   }
 }
