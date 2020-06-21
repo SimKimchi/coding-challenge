@@ -8,9 +8,10 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
+  public ninjaName: string;
   public buzzwordInput = new FormControl();
   public buzzwords: string[] = [];
-  public ninjaName: string;
+  public wordsSubmitted = false;
 
   constructor(private http: HttpClient) {}
 
@@ -35,5 +36,6 @@ export class AppComponent {
 
     // this.http.get(this.ninjaNameUrl);
     this.ninjaName = flatBuzzwordList;
+    this.wordsSubmitted = true;
   }
 }

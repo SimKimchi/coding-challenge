@@ -33,10 +33,15 @@
 
   <button (click)="getNinjaName()">Get my ninja name!</button>
 
-  <div *ngIf="ninjaName">
-    <h2>Your ninja name :</h2>
-    <h4>
-      <strong>{{ ninjaName }}</strong> !
-    </h4>
+  <div *ngIf="wordsSubmitted">
+    <div *ngIf="ninjaName; else elseBlock">
+      <h2>Your ninja name :</h2>
+      <h4>
+        <strong>{{ ninjaName }}</strong> !
+      </h4>
+    </div>
+    <ng-template #elseBlock
+      >Add buzzwords to generate your ninja name!</ng-template
+    >
   </div>
 </div>
