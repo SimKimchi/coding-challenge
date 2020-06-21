@@ -1,0 +1,42 @@
+<div class="content" role="main">
+  <h2>My ninja name</h2>
+  <p>Enter your favorite buzzwords to get your own unique ninja name!</p>
+
+  <mat-form-field>
+    <mat-label>Enter a buzzword!</mat-label>
+    <input
+      matInput
+      #buzzwordInput
+      placeholder="Ex. TypeScript"
+      [(value)]="newBuzzword"
+      (keyup.enter)="addBuzzword(buzzwordInput.value)"
+    />
+  </mat-form-field>
+
+  <button mat-stroked-button (click)="addBuzzword(buzzwordInput.value)">
+    Add buzzword
+  </button>
+
+  <mat-list *ngIf="buzzwords.length">
+    <h2>My buzzwords</h2>
+    <mat-list-item *ngFor="let buzzword of buzzwords">
+      <span>{{ buzzword }}</span
+      ><button
+        mat-stroked-button
+        color="warn"
+        (click)="removeBuzzword(buzzword)"
+      >
+        Remove
+      </button>
+    </mat-list-item>
+  </mat-list>
+
+  <button (click)="getNinjaName()">Get my ninja name!</button>
+
+  <div *ngIf="ninjaName">
+    <h2>Your ninja name :</h2>
+    <h4>
+      <strong>{{ ninjaName }}</strong> !
+    </h4>
+  </div>
+</div>
