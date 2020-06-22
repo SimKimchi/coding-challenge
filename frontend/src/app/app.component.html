@@ -1,47 +1,65 @@
-<div class="content" role="main">
-  <h2>My ninja name</h2>
-  <p>Enter your favorite buzzwords to get your own unique ninja name!</p>
+<div id="content" role="main">
+  <div>
+    <h2>My ninja name</h2>
+    <p>Enter your favorite buzzwords and get your own unique ninja name!</p>
+  </div>
 
-  <mat-form-field>
-    <mat-label>Enter a buzzword!</mat-label>
-    <input
-      matInput
-      placeholder="Ex. TypeScript"
-      type="text"
-      [formControl]="buzzwordInput"
-      (keyup.enter)="addBuzzword()"
-    />
-  </mat-form-field>
+  <div>
+    <mat-form-field>
+      <mat-label>Enter a buzzword!</mat-label>
+      <input
+        matInput
+        placeholder="Ex. TypeScript"
+        type="text"
+        [formControl]="buzzwordInput"
+        (keyup.enter)="addBuzzword()"
+      />
+    </mat-form-field>
+    <span *ngIf="!isBuzzwordValid">{{ buzzwordInvalidMessage }}</span>
 
-  <button mat-stroked-button (click)="addBuzzword()">
-    Add buzzword
-  </button>
+    <button mat-stroked-button (click)="addBuzzword()">
+      {{ addBtnMsg }}
+    </button>
+  </div>
 
-  <mat-list *ngIf="buzzwords.length">
-    <h2>My buzzwords</h2>
-    <mat-list-item *ngFor="let buzzword of buzzwords">
-      <span>{{ buzzword }}</span
-      ><button
-        mat-stroked-button
-        color="warn"
-        (click)="removeBuzzword(buzzword)"
-      >
-        Remove
-      </button>
-    </mat-list-item>
-  </mat-list>
+  <div>
+    <h3>My buzzwords</h3>
+    <mat-list *ngIf="buzzwords.length; else noBuzzWords">
+      <mat-list-item *ngFor="let buzzword of buzzwords">
+        <span>{{ buzzword }}</span
+        ><button
+          mat-stroked-button
+          color="warn"
+          (click)="removeBuzzword(buzzword)"
+        >
+          Remove
+        </button>
+      </mat-list-item>
+    </mat-list>
+    <ng-template #noBuzzWords>None... yet!</ng-template>
+  </div>
 
-  <button (click)="getNinjaName()">Get my ninja name!</button>
+  <div>
+    <button mat-stroked-button color="accent" (click)="getNinjaName()">
+      What's my ninja name?
+    </button>
+  </div>
 
   <div *ngIf="wordsSubmitted">
-    <div *ngIf="ninjaName; else elseBlock">
-      <h2>Your ninja name :</h2>
-      <h4>
-        <strong>{{ ninjaName }}</strong> !
-      </h4>
+    <div *ngIf="isNinjaNameValid; else invalidWords">
+      <h2>Your ninja name is</h2>
+      <h1>
+        <strong>{{ ninjaName }}</strong> !!!
+      </h1>
     </div>
-    <ng-template #elseBlock
-      >Add buzzwords to generate your ninja name!</ng-template
-    >
+    <ng-template #invalidWords>{{ ninjaErrorMessage }}</ng-template>
   </div>
+
+  <footer>
+    <span
+      >🐱‍👤 Made by Simon Côté for TLM
+      <a href="https://github.com/SimKimchi/coding-challenge">(Source code)</a>
+      🐱‍👤</span
+    >
+  </footer>
 </div>
