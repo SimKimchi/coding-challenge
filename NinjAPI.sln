@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NinjAPI", "NinjAPI\NinjAPI.csproj", "{54F721EF-CE46-4017-B26E-5955228988C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjAPI", "NinjAPI\NinjAPI.csproj", "{8892745E-D2F3-4D5E-B2E0-165BAEAA4D0D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NinjAPI.Tests", "NinjAPI.Tests\NinjAPI.Tests.csproj", "{74FED2BF-8B04-4723-99DA-AB067173CF3A}"
 EndProject
@@ -13,10 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{54F721EF-CE46-4017-B26E-5955228988C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54F721EF-CE46-4017-B26E-5955228988C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54F721EF-CE46-4017-B26E-5955228988C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54F721EF-CE46-4017-B26E-5955228988C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8892745E-D2F3-4D5E-B2E0-165BAEAA4D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8892745E-D2F3-4D5E-B2E0-165BAEAA4D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8892745E-D2F3-4D5E-B2E0-165BAEAA4D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8892745E-D2F3-4D5E-B2E0-165BAEAA4D0D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{74FED2BF-8B04-4723-99DA-AB067173CF3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74FED2BF-8B04-4723-99DA-AB067173CF3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74FED2BF-8B04-4723-99DA-AB067173CF3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0F3B5302-A802-499B-AD82-5E73A31A1B60}
+		SolutionGuid = {DD56BAB7-74AC-4B2E-853A-E1DF2564969A}
 	EndGlobalSection
 EndGlobal
