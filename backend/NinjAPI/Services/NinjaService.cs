@@ -46,12 +46,15 @@ namespace NinjAPI.Services
 			return ninjaName;
 		}
 
-		/// <summary>
-		/// Selects and returns a ninja word from the provided list based on the integer value of the buzzword.
-		/// </summary>
-		/// <param name="buzzword">The input buzzword.</param>
-		/// <param name="ninjaWords">The provided ninja words, either adjectives or names.</param>
-		private string SelectNinjaWord(string buzzword, List<string> ninjaWords)
+        /// <summary>
+        /// Selects and returns a ninja word from the provided list based on the integer value of the buzzword.
+        /// 1 - Adds up the ASCII base 10 value of each of the buzzword's characters.
+		/// 2 - Divides the sum by the amount of words in the provided list.
+		/// 3 - Uses the rest of the division as an index to select a word from the list.
+        /// </summary>
+        /// <param name="buzzword">The input buzzword.</param>
+        /// <param name="ninjaWords">The provided ninja words, either adjectives or names.</param>
+        private string SelectNinjaWord(string buzzword, List<string> ninjaWords)
 		{
 			string ninjaWord;
 			int numValOfWord = 0;

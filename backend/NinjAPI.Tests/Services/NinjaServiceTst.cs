@@ -34,7 +34,7 @@ namespace NinjAPI.WebAPI.Tests
             // Assert
             Assert.NotNull(result.Name);
             Assert.Single(nameWords);
-            Assert.Equal(ninjaNames[0], nameWords[0]);
+            Assert.Equal(ninjaNames[1], nameWords[0]);
         }
 
         [Fact]

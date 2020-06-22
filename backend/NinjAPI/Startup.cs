@@ -41,6 +41,7 @@ namespace NinjAPI
 				app.UseHsts();
 			}
 
+			app.UseCors(options => options.AllowAnyOrigin());
 			app.UseHttpsRedirection();
 			app.UseMvc();
 		}
