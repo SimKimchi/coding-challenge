@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public buzzwords: string[] = [];
   public addBtnMsg: string;
+  public isKonamiEntered = false;
 
   public constructor() {
     this.updateAddBtnMsg();
@@ -21,7 +22,7 @@ export class AppComponent {
     } else if (buzzwordsCount < 10) {
       this.addBtnMsg = 'Ok ok.';
     } else {
-      this.addBtnMsg = 'Not sure if the shogun will pronounce all that...';
+      this.addBtnMsg = 'Uh oh...';
     }
   }
 }
