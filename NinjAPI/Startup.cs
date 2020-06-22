@@ -67,7 +67,7 @@ namespace NinjAPI
 
 			app.UseSpa(spa =>
 			{
-				spa.Options.SourcePath = "Client";
+				spa.Options.SourcePath = "../";
 
 				if (env.IsDevelopment())
 				{
