@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "echo Starting... && ng serve",
     "build": "echo Building... && ng build",
-    "build:ssr": "ng run NinjAPI:server:dev",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
