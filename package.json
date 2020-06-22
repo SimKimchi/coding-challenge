@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "echo Starting... && ng serve",
-    "build": "ng build",
+    "build": "echo Building... && ng build",
     "build:ssr": "ng run NinjAPI:server:dev",
     "test": "ng test",
     "lint": "ng lint",
