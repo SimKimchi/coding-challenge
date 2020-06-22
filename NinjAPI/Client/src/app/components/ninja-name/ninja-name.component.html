@@ -1,0 +1,15 @@
+<div>
+  <button mat-stroked-button color="accent" (click)="getNinjaName()">
+    What's my ninja name?
+  </button>
+</div>
+
+<div *ngIf="wordsSubmitted">
+  <div *ngIf="isNinjaNameValid; else invalidWords">
+    <h2>Your ninja name is</h2>
+    <h1>
+      <strong>{{ ninjaName }}</strong> !!!
+    </h1>
+  </div>
+  <ng-template #invalidWords>{{ ninjaErrorMessage }}</ng-template>
+</div>

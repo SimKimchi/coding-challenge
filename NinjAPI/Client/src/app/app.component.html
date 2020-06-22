@@ -1,65 +1,30 @@
 <div id="content" role="main">
   <div>
     <h2>My ninja name</h2>
-    <p>Enter your favorite buzzwords and get your own unique ninja name!</p>
+    <p>
+      Enter your favorite buzzwords from the
+      <a href="https://github.com/sindresorhus/awesome">Awesome list</a> and get
+      your own unique ninja name!
+    </p>
   </div>
 
-  <div>
-    <mat-form-field>
-      <mat-label>Enter a buzzword!</mat-label>
-      <input
-        matInput
-        placeholder="Ex. TypeScript"
-        type="text"
-        [formControl]="buzzwordInput"
-        (keyup.enter)="addBuzzword()"
-      />
-    </mat-form-field>
-    <span *ngIf="!isBuzzwordValid">{{ buzzwordInvalidMessage }}</span>
+  <app-new-buzzword
+    [buzzwords]="buzzwords"
+    (buzzwordsChange)="updateAddBtnMsg()"
+    [addBtnMsg]="addBtnMsg"
+  ></app-new-buzzword>
 
-    <button mat-stroked-button (click)="addBuzzword()">
-      {{ addBtnMsg }}
-    </button>
-  </div>
+  <app-buzzword-list
+    [buzzwords]="buzzwords"
+    (buzzwordsChange)="updateAddBtnMsg()"
+  ></app-buzzword-list>
 
-  <div>
-    <h3>My buzzwords</h3>
-    <mat-list *ngIf="buzzwords.length; else noBuzzWords">
-      <mat-list-item *ngFor="let buzzword of buzzwords">
-        <span>{{ buzzword }}</span
-        ><button
-          mat-stroked-button
-          color="warn"
-          (click)="removeBuzzword(buzzword)"
-        >
-          Remove
-        </button>
-      </mat-list-item>
-    </mat-list>
-    <ng-template #noBuzzWords>None... yet!</ng-template>
-  </div>
-
-  <div>
-    <button mat-stroked-button color="accent" (click)="getNinjaName()">
-      What's my ninja name?
-    </button>
-  </div>
-
-  <div *ngIf="wordsSubmitted">
-    <div *ngIf="isNinjaNameValid; else invalidWords">
-      <h2>Your ninja name is</h2>
-      <h1>
-        <strong>{{ ninjaName }}</strong> !!!
-      </h1>
-    </div>
-    <ng-template #invalidWords>{{ ninjaErrorMessage }}</ng-template>
-  </div>
+  <app-ninja-name [buzzwords]="buzzwords"></app-ninja-name>
 
   <footer>
     <span
-      >🐱‍👤 Made by Simon Côté for TLM
+      >Made by Simon Côté for TLM
       <a href="https://github.com/SimKimchi/coding-challenge">(Source code)</a>
-      🐱‍👤</span
-    >
+    </span>
   </footer>
 </div>

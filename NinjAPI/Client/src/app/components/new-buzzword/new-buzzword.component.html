@@ -1,0 +1,17 @@
+<div>
+  <mat-form-field>
+    <mat-label>Enter a buzzword!</mat-label>
+    <input
+      matInput
+      placeholder="Ex. TypeScript"
+      type="text"
+      [formControl]="buzzwordInput"
+      (keyup.enter)="addBuzzword()"
+    />
+  </mat-form-field>
+  <span *ngIf="!isBuzzwordValid">{{ buzzwordInvalidMessage }}</span>
+
+  <button mat-stroked-button (click)="addBuzzword()">
+    {{ addBtnMsg }}
+  </button>
+</div>

@@ -1,0 +1,16 @@
+<div>
+  <h3>My buzzwords</h3>
+  <mat-list *ngIf="buzzwords.length; else noBuzzWords">
+    <mat-list-item *ngFor="let buzzword of buzzwords">
+      <span>{{ buzzword }}</span
+      ><button
+        mat-stroked-button
+        color="warn"
+        (click)="removeBuzzword(buzzword)"
+      >
+        Remove
+      </button>
+    </mat-list-item>
+  </mat-list>
+  <ng-template #noBuzzWords>None... yet!</ng-template>
+</div>
