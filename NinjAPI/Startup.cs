@@ -32,7 +32,7 @@ namespace NinjAPI
 
 			services.AddSpaStaticFiles(configuration =>
 			{
-				configuration.RootPath = "Client/dist";
+				configuration.RootPath = "../dist";
 			});
 		}
 
@@ -67,7 +67,7 @@ namespace NinjAPI
 
 			app.UseSpa(spa =>
 			{
-				spa.Options.SourcePath = "Client";
+				spa.Options.SourcePath = "../";
 
 				if (env.IsDevelopment())
 				{

@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "NinjAPI/Client/dist/my-ninja-name",
+            "outputPath": "./dist/my-ninja-name",
             "index": "NinjAPI/Client/src/index.html",
             "main": "NinjAPI/Client/src/main.ts",
             "polyfills": "NinjAPI/Client/src/polyfills.ts",
