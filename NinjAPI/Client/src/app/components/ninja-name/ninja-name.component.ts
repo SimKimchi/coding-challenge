@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Ninja } from 'src/models/ninja-model';
+import { NinjaNameService } from './ninja-name.service';
 
 @Component({
   selector: 'app-ninja-name',
@@ -14,27 +13,23 @@ export class NinjaNameComponent {
   public ninjaName: string;
   public ninjaErrorMessage: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private ninjaNameService: NinjaNameService) {}
 
-  public getNinjaName(): void {
+  public submitBuzzwords(): void {
     const flatBuzzwordList = encodeURIComponent(
       this.buzzwords.join(',').toLowerCase()
     );
 
-    this.http
-      .get<Ninja>(`${document.location.href}ninjify?x=${flatBuzzwordList}`, {
-        responseType: 'json',
-      })
-      .subscribe(
-        (data) => {
-          this.isNinjaNameValid = true;
-          this.ninjaName = data.name;
-        },
-        (error) => {
-          this.isNinjaNameValid = false;
-          this.ninjaErrorMessage = error.error;
-        }
-      );
+    this.ninjaNameService.getNinjaName(flatBuzzwordList).subscribe(
+      (data) => {
+        this.isNinjaNameValid = true;
+        this.ninjaName = data.name;
+      },
+      (error) => {
+        this.isNinjaNameValid = false;
+        this.ninjaErrorMessage = error.error;
+      }
+    );
 
     this.wordsSubmitted = true;
   }

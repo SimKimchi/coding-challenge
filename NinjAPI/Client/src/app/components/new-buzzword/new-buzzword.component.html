@@ -8,8 +8,13 @@
       [formControl]="buzzwordInput"
       (keyup.enter)="addBuzzword()"
     />
+    <mat-error *ngIf="buzzwordInput.hasError('required')">
+      Type something!
+    </mat-error>
+    <mat-error *ngIf="buzzwordInput.hasError('duplicateBuzzword')">
+      Not that one again!
+    </mat-error>
   </mat-form-field>
-  <span *ngIf="!isBuzzwordValid">{{ buzzwordInvalidMessage }}</span>
 
   <button mat-stroked-button (click)="addBuzzword()">
     {{ addBtnMsg }}

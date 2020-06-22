@@ -1,3 +1,3 @@
-export class Ninja {
-  constructor(public name: string) {}
+export interface Ninja {
+  name: string;
 }
