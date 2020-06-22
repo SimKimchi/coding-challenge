@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "echo Starting... && ng serve",
     "build": "ng build",
+    "build:ssr": "ng run NinjAPI:server:dev",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,7 +21,7 @@
     "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.1.11",
     "@angular/platform-browser-dynamic": "~9.1.11",
-    "@angular/router": "~9.1.11",
+    "@angular/router": "^9.1.11",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
     "rxjs": "~6.5.4",

@@ -25,7 +25,7 @@ namespace NinjAPI.Controllers
 
 			if (!validationResult.isValid)
 			{
-				return BadRequest(validationResult);
+				return BadRequest(validationResult.errorMessage);
 			}
 
 			NinjaModel ninja = _ninjaService.CreateNinja(x);

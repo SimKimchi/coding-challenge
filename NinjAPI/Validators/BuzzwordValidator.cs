@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Internal;
-using NinjAPI.DAL;
+﻿using NinjAPI.DAL;
 using NinjAPI.Utility;
 using System.Linq;
 

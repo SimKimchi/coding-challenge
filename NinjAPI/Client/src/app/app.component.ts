@@ -13,7 +13,6 @@ export class AppComponent {
   public buzzwordInput = new FormControl();
   public buzzwords: string[] = [];
   public wordsSubmitted = false;
-  public ninjaNameUrl = 'https://localhost:44348/ninjify';
   public isBuzzwordValid: boolean;
   public buzzwordInvalidMessage: string;
   public isNinjaNameValid: boolean;
@@ -51,7 +50,7 @@ export class AppComponent {
     );
 
     this.http
-      .get<Ninja>(`${this.ninjaNameUrl}?x=${flatBuzzwordList}`, {
+      .get<Ninja>(`${document.location.href}ninjify?x=${flatBuzzwordList}`, {
         responseType: 'json',
       })
       .subscribe(
@@ -61,7 +60,7 @@ export class AppComponent {
         },
         (error) => {
           this.isNinjaNameValid = false;
-          this.ninjaErrorMessage = error.error.errorMessage;
+          this.ninjaErrorMessage = error.error;
         }
       );
 
