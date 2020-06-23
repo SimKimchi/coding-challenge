@@ -1,54 +1,75 @@
-# TLM Coding challenge
-(inspired by: https://github.com/coveo/backend-coding-challenge)
+# My ninja name
 
-## Requirements
+A coding challenge made by Simon Côté, hosted on Heroku here : https://my-ninja-name.herokuapp.com/
+
+Enjoy using it as much as I enjoyed making it!
+
+## Usage
+
+- The backend requires Visual Studio 2019 Community to be executed. Simply open the `.sln` solution file and click `IIS Express` at the top of the IDE to build and launch both the Web API and the Angular frontend.
+
+- To run the .NET unit tests, simply right-click the `NinjAPI.Tests` project and select `Run Tests`.
+
+- The frontend can also be individually launched using the following commands :
+
+  - `npm install`
+  - `npm run start`
+
+- Unit tests are executed using this command :
+
+  - `npm run test`
+
+## Specifications & Technologies
 
 ### Backend
-Design an API endpoint that provides a ninja name based on a list of technology buzzwords (Ex: [Awesome List](https://github.com/sindresorhus/awesome))
 
-- The endpoint is exposed at `/ninjify`
-- The search has to be deterministic
-- The search term is passed as a querystring parameter `x`
-- The endpoint returns a JSON with a ninja name
+- The Web API was built using .NET Core 3.1 in C#
+- The database is made of three simple JSON files (the awesome list, 10 ninja adjectives and 10 ninja names)
+- The endpoint is exposed at `ninjify`, with `x` as the search term query parameter
+- Unit tests were made using XUnit and Moq
 
 ### Frontend
-Design an user interface to input web technology buzzwords and then generate an awesome ninja name.
 
-- Responsive
-- Mobile/Desktop compatibility
+- Made with Angular 9 in TypeScript, powered by Node.js
+- Styling was made using SASS (was new to it)
+- Unit tests were made using Jasmine and Karma
+- Try the konami code !
 
-## "The rules"
+## The Algorithm
 
-- *You can use the language and technology of your choosing.* It's OK to try something new (tell us if you do), but feel free to use something you're comfortable with. We don't care if you use something we don't; the goal here is not to validate your knowledge of a particular technology.
-- End result should be deployed on a public Cloud (Heroku, AWS etc. all have free tiers you can use).
-- The results have to be SFW and politically correct
+This is a very simple deterministic algorithm that generates a ninja name based on a list of buzzwords sent by the user.
 
-## Advices
+- The ninja name contains as many words as the amount of words the user inputs.
+- The last word of the buzzword list is the name; all the other words are adjectives.
 
-- **Try to design and implement your solution as you would do for real production code**. Show us how you create clean, maintainable code that does awesome stuff. Build something that we'd be happy to contribute to. This is not a programming contest where dirty hacks win the game.
-- Feel free to add more features! Really, we're curious about what you can think of. We'd expect the same if you worked with us.
-- Documentation and maintainability is a plus.
-- Don't you forget those unit tests.
-- We don’t want to know if you can do exactly as asked (or everybody would have the same result). We want to know what **you** bring to the table when working on a project, what is your secret sauce. More features? Best solution? Thinking outside the box?
-- Make sure you apply security good practices. _Ninjas hide their secrets because pirates will find them._
+For each word in the buzzword list, the algorithm does the following :
 
-## Bonuses
-- Add easter egg with the `Konami` code.
-- Permalink to share the result
+1. Adds up the ASCII numeric value of each of the buzzword's characters.
+2. Apply a modulo operation to the sum with the amount of words in the provided list.
+3. Uses the result of the modulo as an index to select a word from the list or names/adjectives.
 
-## Sample responses
+Finally, the selected words are put together and a final name is made and sent back to the user.
 
-These responses are meant to provide guidance. The exact values can vary based on the data source and scoring algorithm
+### Example
 
-    GET /ninjify?x=sass,rails,html
+Buzzwords : Java, Ruby & Python
 
-```json
-{
-  "name": "Crimson Drop Shadow"
-}
-```
+1. The ASCII numeric value of
 
-## Getting Started
+- "java" is 106(j) 97(a) 118(v) 97(a) = 418
+- "ruby" is 114(r) 117(u) 98(b) 121(y) = 450
+- "python" is 112(p) 121(y) 116(t) 104(h) 111(o) 110(n) = 674
 
-Begin by forking this repo and cloning your fork. GitHub has apps for [Mac](http://mac.github.com/) and
-[Windows](http://windows.github.com/) that make this easier.
+2. As there are currently 10 adjectives and 10 names in the JSON database files, we apply a modulo operation to the sums with 10 :
+
+- 418 % 10 = 8
+- 450 % 10 = 0
+- 674 % 10 = 4
+
+3. We use the result of the modulo operation to select two adjectives and one name from the lists :
+
+- The ninth (8 + 1) adjective of the list is Swift
+- The first (0 + 1) adjective of the list is Silent
+- The fifth (4 + 1) name of the list is Kennen
+
+These are then combined and make the final name "Swift Silent Kennen" !
