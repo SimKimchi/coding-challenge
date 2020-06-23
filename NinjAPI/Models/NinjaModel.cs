@@ -1,15 +1,15 @@
 namespace NinjAPI.Models
 {
-	/// <summary>
-	/// The domain model, representing a ninja.
-	/// </summary>
-	public class NinjaModel
-	{
-		public string Name { get; set; }
+  /// <summary>
+  /// The domain model, representing a ninja.
+  /// </summary>
+  public class NinjaModel
+  {
+    public string Name { get; set; }
 
-		public NinjaModel(string name)
-		{
-			Name = name;
-		}
-	}
+    public NinjaModel(string name)
+    {
+      Name = name;
+    }
+  }
 }
