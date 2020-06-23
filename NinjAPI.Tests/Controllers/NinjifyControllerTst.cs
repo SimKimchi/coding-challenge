@@ -48,7 +48,8 @@ namespace NinjAPI.WebAPI.Tests
     public void GetNinjaName_InvalidBuzzwords_ShouldReturnError()
     {
       // Arrange
-      var invalidBuzzwordResult = new ValidatorResult(false, "Error");
+      var expectedErrorMessage = "Error";
+      var invalidBuzzwordResult = new ValidatorResult(false, expectedErrorMessage);
 
       _buzzwordValidator.Setup(validator => validator.Validate(It.IsAny<string>())).Returns(invalidBuzzwordResult);
       _controller = new NinjifyController(_ninjaService.Object, _buzzwordValidator.Object);
@@ -58,7 +59,7 @@ namespace NinjAPI.WebAPI.Tests
 
       // Assert
       var badRequestObjectResult = Assert.IsType<BadRequestObjectResult>(result.Result);
-      Assert.Equal(invalidBuzzwordResult, badRequestObjectResult.Value);
+      Assert.Equal(expectedErrorMessage, badRequestObjectResult.Value);
     }
   }
 }
