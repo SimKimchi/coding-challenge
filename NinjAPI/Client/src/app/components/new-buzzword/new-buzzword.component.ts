@@ -25,10 +25,7 @@ export class NewBuzzwordComponent implements OnInit {
   public addBuzzword(): void {
     const buzzword: string = this.buzzwordInput.value;
 
-    if (
-      this.buzzwordInput.invalid ||
-      this.buzzwords.find((x) => x === buzzword)
-    ) {
+    if (this.buzzwordInput.invalid) {
       return;
     }
 

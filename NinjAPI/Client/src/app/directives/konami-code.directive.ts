@@ -20,7 +20,7 @@ export class KonamiCodeDirective {
   ];
 
   @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
+  private handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key) {
       this.sequence.push(event.key);
 
@@ -33,8 +33,6 @@ export class KonamiCodeDirective {
       }
     }
   }
-
-  constructor() {}
 
   private isKonamiCode(): boolean {
     return this.konamiCode.every(

@@ -27,6 +27,7 @@ export class NinjaNameComponent {
       },
       (error) => {
         this.isNinjaNameValid = false;
+        this.ninjaName = null;
         this.ninjaErrorMessage = error.error;
       }
     );

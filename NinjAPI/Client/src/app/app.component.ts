@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public buzzwords: string[] = [];
   public addBtnMsg: string;
-  public isKonamiEntered = false;
 
   public constructor() {
     this.updateAddBtnMsg();
