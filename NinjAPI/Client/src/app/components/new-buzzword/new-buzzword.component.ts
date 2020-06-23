@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { duplicateBuzzwordValidator } from 'src/app/validators/duplicate-buzzword.validator';
 
+// Child component that lets users add a new buzzword to the list.
 @Component({
   selector: 'app-new-buzzword',
   templateUrl: './new-buzzword.component.html',
@@ -22,6 +23,7 @@ export class NewBuzzwordComponent implements OnInit {
     ]);
   }
 
+  // If valid, adds the new buzzword to the list and emits it to the parent component.
   public addBuzzword(): void {
     const buzzword: string = this.buzzwordInput.value;
 

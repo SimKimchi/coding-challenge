@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+// Parent component of the app.
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,7 @@ export class AppComponent {
     this.updateAddBtnMsg();
   }
 
+  // Changes the "Add" button message based on the amount of buzzwords in the list.
   public updateAddBtnMsg() {
     const buzzwordsCount = this.buzzwords.length;
     if (buzzwordsCount === 0) {
