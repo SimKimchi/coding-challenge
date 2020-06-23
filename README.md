@@ -6,7 +6,7 @@ Enjoy using it as much as I enjoyed making it!
 
 ## Usage
 
-- The backend requires Visual Studio 2019 Community to be executed. Simply open the `.sln` solution file and click `IIS Express` at the top of the IDE to build and launch both the Web API and the Angular frontend.
+- The backend requires Visual Studio 2019 Community. Simply open the `.sln` solution file and click `IIS Express` at the top of the IDE to build and launch both the Web API and the Angular frontend.
 
 - To run the .NET unit tests, simply right-click the `NinjAPI.Tests` project and select `Run Tests`.
 
@@ -72,9 +72,4 @@ Buzzwords : Java, Ruby & Python
 - The first (0 + 1) adjective of the list is Silent
 - The fifth (4 + 1) name of the list is Kennen
 
-<<<<<<< HEAD
 These are then combined and make the final name "Swift Silent Kennen" !
-=======
-These are then combined and make the final name "Swift Silent Kennen".
-
-> > > > > > > ba3ed5d4cc0fe9235a20429d7ad7522b29a08189
