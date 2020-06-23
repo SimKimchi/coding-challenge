@@ -72,4 +72,9 @@ Buzzwords : Java, Ruby & Python
 - The first (0 + 1) adjective of the list is Silent
 - The fifth (4 + 1) name of the list is Kennen
 
+<<<<<<< HEAD
 These are then combined and make the final name "Swift Silent Kennen" !
+=======
+These are then combined and make the final name "Swift Silent Kennen".
+
+> > > > > > > ba3ed5d4cc0fe9235a20429d7ad7522b29a08189
